@@ -9,6 +9,7 @@ for acc in Accounts_Pass_Pairs:
 	# Common Passwords Attack
 	file = open("rockyou.txt","r")
 	for password in file:
+		password = password[:-2]
 		hash_res = Extract_Data.Crypt(password, salt)
 		if(hash_res == expect_hash_res):
 			print "{}:{}".format(acc, password)
