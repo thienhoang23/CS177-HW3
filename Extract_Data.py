@@ -4,7 +4,6 @@ def getAccountsAndPassHashes():
 	Accounts_Pass_Pairs = {}
 	file = open("shadow","r")
 	for line in file:
-		line = line[:-1]
 		stored_data_components = line.split(":")
 		account = stored_data_components[0]
 		password_hash = stored_data_components[1] 
