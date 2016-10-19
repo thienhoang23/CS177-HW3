@@ -11,7 +11,8 @@ def main():
 	salt = Extract_Data.getSalt(password_hash)
 	i = 5
 	while True:
-		allCombos = itertools.product(LOWERCASE_ALPHA, repeat=i+1)
+		i = i + 1
+		allCombos = itertools.product(LOWERCASE_ALPHA, repeat=i)
 		for combo in allCombos:
 			password = ""
 			for each_word in combo:
