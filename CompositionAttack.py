@@ -48,7 +48,6 @@ def main():
 					continue
 				for each_appending in append_list:
 					mod_password = password + each_appending
-					print mod_password
 					hash_res = Extract_Data.Crypt(mod_password, salt)
 					if(hash_res == expect_hash_res):
 						print "{}:{}".format(acc, mod_password)
