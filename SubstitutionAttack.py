@@ -19,16 +19,12 @@ Substitutions = {
 def main():
 	Accounts_Pass_Pairs = Extract_Data.getAccountsAndPassHashes()
 
-	target = 'j_snow'
-
-	password_hash = Accounts_Pass_Pairs[target]
-
-	salt = Extract_Data.getSalt(password_hash)
-
-	file = open('wordsEn.txt','r')
-	for password in file:
+	for acc in Accounts_Pass_Pairs:
+		password_hash = Accounts_Pass_Pairs[target]
+		salt = Extract_Data.getSalt(password_hash)
+		file = open('wordsEn.txt','r')
+		for password in file:
 		password = password[:-2]
-		print password
 		if(len(password) < 6 or len(password) > 8):
 			continue
 		hash_res = Extract_Data.Crypt(password, salt)
