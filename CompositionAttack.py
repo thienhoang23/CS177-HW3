@@ -8,7 +8,7 @@ NUMBERS = "0123456789"
 def main():
 	append_list = []
 
-	for i in range(1,6):
+	for i in range(1,5):
 		allCombos = itertools.product(NUMBERS, repeat=i)
 		for combo in allCombos:
 			appending = ""
