@@ -35,11 +35,11 @@ def main():
 				hash_res1 = Extract_Data.Crypt(mod_password, salt)
 				hash_res2 = Extract_Data.Crypt(continual_mod_password, salt)
 				if(hash_res1 == password_hash):
-					print "{}:{}".format(target, mod_password)
+					print "{}:{}".format(acc, mod_password)
 					found == True
 					break
 				if(hash_res2 == password_hash):
-					print "{}:{}".format(target, continual_mod_password)
+					print "{}:{}".format(acc, continual_mod_password)
 					found == True
 					break
 			if found == True:
