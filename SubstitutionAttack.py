@@ -20,24 +20,32 @@ def main():
 	Accounts_Pass_Pairs = Extract_Data.getAccountsAndPassHashes()
 
 	for acc in Accounts_Pass_Pairs:
-		password_hash = Accounts_Pass_Pairs[target]
+		found = False
+		password_hash = Accounts_Pass_Pairs[acc]
 		salt = Extract_Data.getSalt(password_hash)
 		file = open('wordsEn.txt','r')
 		for password in file:
-		password = password[:-2]
-		if(len(password) < 6 or len(password) > 8):
-			continue
-		hash_res = Extract_Data.Crypt(password, salt)
-		if(hash_res == password_hash):
-			print "{}:{}".format(target,password)
-			return
-		for char in Substitutions:
-			mod_pass = password.replace(char,Substitutions[char])
-			print mod_pass
-			hash_res = Extract_Data.Crypt(password, salt)
-			if(hash_res == password_hash):
-				print "{}:{}".format(target,mod_password)
-				return
+			password = password[:-2]
+			if(len(password) < 6):
+				continue
+			continual_mod_password = password
+			for char in Substitutions:
+				mod_password = password.replace(char,Substitutions[char])
+				print mod_password
+				continual_mod_password = continual_mod_password.replace(char,Substitutions[char])
+				print continual_mod_password
+				hash_res1 = Extract_Data.Crypt(mod_password, salt)
+				hash_res2 = Extract_Data.Crypt(continual_mod_password, salt)
+				if(hash_res1 == password_hash):
+					print "{}:{}".format(target, mod_password)
+					found == True
+					break
+				if(hash_res2 == password_hash):
+					print "{}:{}".format(target, continual_mod_password)
+					found == True
+					break
+			if found == True:
+				break
 	file.close()
 
 

@@ -27,8 +27,6 @@ def main():
 			file = open("wordsEn.txt","r")
 			for password in file:
 				password = password[:-2]
-				if (len(password) < 2):
-					break
 				for each_appending in append_list:
 					mod_password = password + each_appending
 					hash_res = Extract_Data.Crypt(mod_password, salt)
@@ -44,8 +42,6 @@ def main():
 		file = open("wordsEn.txt","r")
 		for password in file:
 				password = password[:-2]
-				if (len(password) < 3):
-					continue
 				for each_appending in append_list:
 					mod_password = password + each_appending
 					hash_res = Extract_Data.Crypt(mod_password, salt)
