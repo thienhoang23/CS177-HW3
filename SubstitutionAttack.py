@@ -31,9 +31,7 @@ def main():
 			continual_mod_password = password
 			for char in Substitutions:
 				mod_password = password.replace(char,Substitutions[char])
-				print mod_password
 				continual_mod_password = continual_mod_password.replace(char,Substitutions[char])
-				print continual_mod_password
 				hash_res1 = Extract_Data.Crypt(mod_password, salt)
 				hash_res2 = Extract_Data.Crypt(continual_mod_password, salt)
 				if(hash_res1 == password_hash):
