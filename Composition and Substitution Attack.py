@@ -46,7 +46,6 @@ def main():
 				continual_mod_password = continual_mod_password.replace(char, Substitutions[char])
 				for each_appending in append_list:
 					number_padded_mod_password = continual_mod_password + each_appending
-					print number_padded_mod_password
 					hash_res = Extract_Data.Crypt(number_padded_mod_password, salt)
 					if(hash_res == password_hash):
 						print "{}:{}".format(acc, number_padded_mod_password)
