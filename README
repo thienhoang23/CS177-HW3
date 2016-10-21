@@ -1,7 +1,45 @@
-arystark:afterthought
-tyrion_lannister:c0mpu73r
-
-Have tried all numbers attack on Jon Snow
-Have tried all lower case attack on Jon Snow
-Have tried all substitution on Jon Snow
-Have tried capitalize attack
+PROGRESS CHECK:
+Dictionary Attack --> Crack arystark (20 minutes)
+Most Common Password w/ rockyou.txt Attack --> no result (30ish hours)
+All Number Attack on j_snow:
+	All possibile Cartesian products of 0-9 with 6,7,8 repeats
+	No Result
+All Number Attack on tyrion_lannister and tagaryend:
+	All possibile Cartesian products of 0-9 with 6+ repeats
+	After 24h running each script --> no result
+All Lowercase Letter Attack on j_snow, tyrion_lannister, and tagaryend:
+	All possibile Cartesian products of 0-9 with 6+ repeats (or 6-8 repeats for j_snow)
+	After 24h running each script --> no result
+Substitution Attack:
+	Substitutions = {
+	'l' : '1',
+	'i' : '1',
+	'e'	: '3',
+	't' : '7',
+	'l' : '7',
+	's' : '5',
+	'a' : '4',
+	'h' : '4',
+	'b' : '8',
+	'g' : '9',
+	'q'	: '9',
+	'o' : '0',
+	}
+	For each word in the dictionary, substitute the all the corresponding character to number
+		eg. at3, a7e, 4te, 473
+	Result: Crack tyrion_lannister
+Capitalize Attack:
+	For each word in the dictionary, capitalize it in two ways:
+		1) For each character, capitalize it and not capitalize the rest (create as many copies of the word as it is long)
+			eg. Car, cAr, caR
+		2) Capitalize each word from 0 index to ith index (create as many copies of the word as it is long)
+			eg. Car, CAr, CAR
+	Result: none
+Composition Attack:
+	For each word in the dictionary, add behind it Cartesian product of [0-9] in 1-4 repeats
+	eg. car1, car11, car111, car1111, car2, car12, ...
+	Result: none
+Composition and Substitution Attack:
+	For each word substitue its characters with corresponding numbers (Similar to Substituion Attack)
+	Afterwards, add behind the modified word with Cartesian product of [0-9] in 1-4 repeats
+	Result: none
